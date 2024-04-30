@@ -1,0 +1,49 @@
+-$ sudo dnesg| grep kvn
+
+ 
+
+[sudo] password for adminis
+
+ 
+
+$ apt update Reading package lista. Don
+
+ 
+
+Could not open lock file /var/lb/apt/lists/lock opes (13) Permission dented) Unable to lock directory /var/lib/apt/Lists/
+
+ 
+
+Problen untiniking the file /var/cache/apt/pkgcache.bin RemoveCaches (13: Permission dented)
+
+ 
+
+Problem unlinking the file /var/ca /cache/apt/src.pkgcache.bin RemoveCaches (13: Permisston denied) Libvirt-daeron systen virt-nasager
+
+ 
+
+Reading package Itats sudo apt install qen
+
+ 
+
+Reading state informatios
+
+ 
+
+Ltbvtrt-daemon-systes to already the newest verston (4.8.8 Lubuntu.21).
+
+ 
+
+virt-manager ta already the newest verston (1:1.5.1-0ubuntu1.2).
+
+ 
+
+The following packages were automatically installed e no longer required:
+
+ 
+
+91r4.2-geo-1.8 1.2-soapd-1 apt autoremove to remince then
+
+ 
+
+Synchronizing state of Llovtrtd.service with Sysy service script with /1lb/systemd/systend-sysv-Install. Executing: Lib/systemd/systard syay install enable libvirtd
