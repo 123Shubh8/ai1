@@ -1,0 +1,29 @@
+<apex:page controller="QuadraticEquationSolver">
+    <h2>Quadratic Equation Solver</h2>
+    
+    <apex:form >
+        <apex:pageBlock title="Input Coefficients">
+            <apex:pageBlockSection >
+                <apex:inputText label="Coefficient a" value="{!a}" required="true"/>
+                <apex:inputText label="Coefficient b" value="{!b}" required="true"/>
+                <apex:inputText label="Coefficient c" value="{!c}" required="true"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Solve Equation" action="{!solveEquation}" rerender="solutionPanel"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+    
+    <apex:outputPanel id="solutionPanel">
+        <apex:outputPanel rendered="{!solutions.size > 0}">
+            <h3>Solutions:</h3>
+            <apex:repeat value="{!solutions}" var="sol">
+                <p>x = {!sol}</p>
+            </apex:repeat>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!solutions.size == 0}">
+            <p>Error: No real roots</p>
+        </apex:outputPanel>
+    </apex:outputPanel>
+</apex:page>

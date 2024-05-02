@@ -1,0 +1,30 @@
+public class QuadraticEquationSolver {
+    public Decimal a { get; set; }
+    public Decimal b { get; set; }
+    public Decimal c { get; set; }
+    public List<Decimal> solutions { get; set; }
+    
+    public QuadraticEquationSolver() {
+        a = 0;
+        b = 0;
+        c = 0;
+        solutions = new List<Decimal>();
+    }
+    
+    public void solveEquation() {
+        Decimal discriminant = b * b - 4 * a * c;
+        
+        if (discriminant > 0) {
+            Decimal root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+            Decimal root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+            solutions.add(root1);
+            solutions.add(root2);
+        } else if (discriminant == 0) {
+            Decimal root = -b / (2 * a);
+            solutions.add(root);
+        } else {
+            // No real roots
+            solutions.clear();
+        }
+    }
+}

@@ -1,0 +1,48 @@
+public class CreateAccount{
+    public String companyName {get; set;}
+    public String phoneNumber {get; set;}
+    public String selectedRegion {get; set;}
+    public String websiteURL {get; set;}
+    public String gender {get; set;}
+    public String swimming {get; set;}
+    public List<SelectOption> lstRegions {get; set;}
+
+    // Constructor without StandardController parameter
+    public CreateAccount(ApexPages.StandardController controller) {
+        lstRegions = new List<SelectOption>();
+        lstRegions.add(new SelectOption('','- None -'));
+        lstRegions.add(new SelectOption('Europe','Europe'));
+        lstRegions.add(new SelectOption('Asia','Asia'));
+        lstRegions.add(new SelectOption('North America','North America'));
+        lstRegions.add(new SelectOption('South America','South America'));
+        lstRegions.add(new SelectOption('Africa','Africa'));
+        lstRegions.add(new SelectOption('Australia','Australia'));
+    }
+
+    public PageReference createAccount() {
+        System.debug('test create');
+        if(!String.isEmpty(companyName)) {
+            Account accountRecord = new Account(
+                Name = companyName,
+                Phone = phoneNumber,
+                Region__c = selectedRegion, // Changed from Region__c to Region
+                Website = websiteURL,
+                Gender__c = gender,
+                Swimming__c = swimming
+                );
+            INSERT accountRecord;
+
+            PageReference pg = new PageReference('/'+accountRecord.Id);
+            pg.setRedirect(true);
+            return pg;
+        } else {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.CONFIRM,'Please enter Company Name'));
+        }
+        return null;
+    }
+
+    public PageReference cancelAccount() {
+        PageReference pg = new PageReference('/'+Schema.SObjectType.Account.getKeyPrefix()+'/o');
+        return pg;
+    }
+}

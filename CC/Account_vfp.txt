@@ -1,0 +1,31 @@
+<apex:page standardController="Account" extensions="CreateAccount">
+    <apex:form id="apexFrom">
+        
+        <apex:pageBlock title="Create Tourism Account:" id="pageBlockId">
+            <apex:pageMessages id="showmsg"></apex:pageMessages>
+            <apex:pageBlockSection columns="2" > <!-- Apply style inline -->
+                <apex:outputLabel value="Customer Name" styleClass="formLabel"/>
+                <apex:inputText value="{!companyName}" styleClass="formInput" required="true"/>
+                <apex:outputLabel value="Phone" styleClass="formLabel"/>
+                <apex:inputText value="{!phoneNumber}" styleClass="formInput"/>
+                <apex:outputLabel value="Country" styleClass="formLabel"/>
+                <apex:selectList size="1" value="{!selectedRegion}" styleClass="selectList">
+                    <apex:selectOptions value="{!lstRegions}"/>
+                </apex:selectList>
+                <apex:outputLabel value="Website" styleClass="formLabel"/>
+                <apex:inputText value="{!websiteURL}" styleClass="formInput"/>
+                <!-- Add Swimming and Gender fields -->
+                <apex:outputLabel value="Gender" styleClass="formLabel"/>
+                <apex:inputText value="{!gender}" styleClass="formInput"/>
+                <apex:outputLabel value="Swimming" styleClass="formLabel"/>
+                <apex:inputText value="{!swimming}" styleClass="formInput"/>
+            </apex:pageBlockSection>
+                <apex:commandButton action="{!createAccount}" value="Save" styleClass="btn"/>
+                <apex:commandButton action="{!cancelAccount}" value="Cancel" styleClass="btn cancel"/>
+           
+        </apex:pageBlock>
+        <!-- ACTION FUNCTIONS-->
+        <apex:actionFunction name="createFunction" action="{!createAccount}"/>
+        <apex:actionFunction name="cancelFunction" action="{!cancelAccount}"/>
+    </apex:form>
+</apex:page>
