@@ -3,7 +3,7 @@ class LibrarySystem:
         self.books = {
             "101": {"title": "Introduction to Python", "author": "John Smith", "available": True},
             "102": {"title": "Data Science Handbook", "author": "Emily Johnson", "available": True},
-            "103": {"title": "Artificial Intelligence Basics", "author": "David Miller", "available": False}
+            "103": {"title": "Artificial Intelligence Basics", "author": "David Miller", "available": True}
         }
         self.users = {}
         self.borrowed_books = {}
@@ -29,8 +29,6 @@ class LibrarySystem:
         for book_id, book_info in self.books.items():
             if book_info["available"]:
                 print(f"{book_id}: {book_info['title']} by {book_info['author']}")
-            else:
-                print(f"{book_id}: {book_info['title']} by {book_info['author']} (Not available)")
 
     def run_system(self):
         print("Welcome to the Library System!")
